@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="maps.css">
+<title>Pillows and Plates</title>
+</head>
+<body>
+
+<div id="titleContainer">
+    <h1> Pillows & Plates Near You!</h1>
+</div>
+
+<div id="googleMap">
+</div>
+
+<script>
+function myMap() {
+
+//centers our map in dallas
+var mapProp= {
+  center:new google.maps.LatLng(32.7762719,-96.7968559),
+  zoom:15,
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var imagePillows = './server/images/pillows-pin.png';
+var imagePlates = './server/images/plates-pin.png';
+var imageStar = './server/images/Star.png';
+
+var ministries_Dallas = {lat: 32.7790938, lng: -96.7757069};
+var ourCalling = {lat: 32.7744294, lng: -96.7833367};
+var here = {lat: 32.7812076, lng: -96.794833}; 
+
+var marker1 = new google.maps.Marker({position: ministries_Dallas, map: map, icon: imagePlates, title: 'Dallas Ministries'});
+var marker = new google.maps.Marker({position: ourCalling, map: map, icon: imagePillows, title: 'Dallas Ministries'});
+var marker2 = new google.maps.Marker({position: here, map: map, icon: imageStar, title: 'Here'});
+
+var infoString = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<div id="bodyContent">' + '<h2>Pillows: 90</h2>' + 'OurCalling'+  '</div>' + '</div>';
+var infoString1 = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<div id="bodyContent">' + '<h2>Plates: 25</h2>' + 'Dallas Ministries' + '</div>' + '</div>';
+var infoString2 = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<div id="bodyContent">' + '<h2>YOU ARE HERE</h2>' + '</div>' + '</div>';
+
+var infowindow = new google.maps.InfoWindow({content: infoString});
+
+marker.addListener('click', function(){infowindow.open(map, marker)});
+infowindow.open(map, marker);
+
+var infowindow1 = new google.maps.InfoWindow({content: infoString1});
+
+marker1.addListener('click', function(){infowindow1.open(map, marker1)});
+infowindow1.open(map, marker1);
+
+var infowindow2 = new google.maps.InfoWindow({content: infoString2});
+
+marker2.addListener('click', function(){infowindow2.open(map, marker2)});
+infowindow2.open(map, marker2);
+
+
+}
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyDB_zAggv-JOzDYaRNet3W33gSCbqtP91A",
+   authDomain: "pillows-and-plates.firebaseapp.com",
+   databaseURL: "https://pillows-and-plates.firebaseio.com",
+   projectId: "pillows-and-plates",
+   storageBucket: "pillows-and-plates.appspot.com",
+   messagingSenderId: "362827592038"
+ };
+ firebase.initializeApp(config);
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGZG9reaNtWPEf7p1LfoK35RH14mRIlDc&callback=myMap"></script>
+
+</body>
+</html>
+
