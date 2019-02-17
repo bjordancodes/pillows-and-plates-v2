@@ -24,7 +24,7 @@ var mapProp= {
 
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 var ministries_Dallas = {lat: 32.7790938, lng: -96.7757069};
-var image = 'http://127.0.0.1:8000/server/images/plates_pin.png';
+var image = './server/images/plates_pin.png';
 var marker = new google.maps.Marker({position: ministries_Dallas, map: map, icon: image, title: 'Dallas Ministries'});
 
 var infoString = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<div id="bodyContent">' + 'Pillows: 90  Plates: 25' + '</div>' + '</div>';
