@@ -1,0 +1,23 @@
+{
+  "name": "pillows-and-plates-v2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.0.0"
+  },
+  "scripts": {
+    "start": "start",
+    "build": "build",
+    "test": "test",
+    "eject": "eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
