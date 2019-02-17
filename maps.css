@@ -1,0 +1,24 @@
+h1{
+    color: #50E3C2;
+  /*  text-shadow: 0px 0px 5px #ffffff; */
+    -webkit-text-stroke: 1px #ffffff;
+    font-size:2.5em;
+
+  
+    text-align: center;
+}
+
+body{
+    background-color: #36383a;
+}
+
+#titleContainer{
+    
+    display: block;
+}
+
+#googleMap{
+
+    width:100%;
+    height:700px;
+}
