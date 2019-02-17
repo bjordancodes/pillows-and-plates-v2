@@ -16,10 +16,9 @@ module.exports = {
         res.status(200).send("post successful!")
       },
       getOrg: function(req, res, next) {
-        ref.once("value", function(snapshot) {
-          console.log(snapshot.val());
+        ref.child("OrgStats/-LYt9aFQ_j_dH8EiQbqh").on("value", function(snapshot) {
+          res.send(snapshot.val());
         });
-        res.sendStatus(200);
       },
       updateOrg: function(req, res, next) {
           const {id, name, bedsAvailable, foodAvailable} = req.body
